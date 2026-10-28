@@ -7,47 +7,40 @@ const navItems = [
   { label: "Program", to: "/#program" },
   { label: "Curriculum", to: "/#curriculum" },
   { label: "Mentors", to: "/#mentors" },
+  { label: "Testimonials", to: "/#testimonials" },
+  { label: "FAQ", to: "/#faq" },
 ];
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
 
+  function closeMenu() {
+    setMenuOpen(false);
+  }
+
   return (
-    <header className="sticky top-0 z-50 border-b border-gray-200 bg-white/95 backdrop-blur">
+    <header className="sticky top-0 z-50 border-b border-gray-100 bg-white/95 backdrop-blur">
       <nav
         className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 sm:px-8"
         aria-label="Main navigation"
       >
+        {/* Logo */}
         <Link
           to="/"
-          className="flex items-center gap-2"
-          aria-label="DevLaunch home"
-          onClick={() => setMenuOpen(false)}
+          onClick={closeMenu}
+          className="text-2xl font-extrabold tracking-tight text-brand-800"
         >
-          <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-brand-600 text-lg font-extrabold text-white">
-            D
-          </span>
-          <span className="text-xl font-extrabold tracking-tight">
-            Dev<span className="text-brand-600">Launch</span>
-          </span>
+          Dev<span className="text-ink">Launch</span>
         </Link>
 
-        <button
-          type="button"
-          className="rounded-lg border border-gray-200 px-3 py-2 text-sm font-semibold md:hidden"
-          aria-expanded={menuOpen}
-          aria-controls="mobile-navigation"
-          onClick={() => setMenuOpen((open) => !open)}
-        >
-          {menuOpen ? "Close menu" : "Menu"}
-        </button>
-
-        <div className="hidden items-center gap-7 md:flex">
+        {/* Desktop navigation */}
+        <div className="hidden items-center gap-6 lg:flex">
           {navItems.map((item) => (
             <NavLink
               key={item.label}
               to={item.to}
-              className="text-sm font-medium text-muted transition hover:text-brand-600"
+              end={item.to === "/"}
+              className="text-sm font-medium text-muted transition hover:text-brand-700"
             >
               {item.label}
             </NavLink>
@@ -55,38 +48,52 @@ export default function Navbar() {
 
           <Link
             to="/signup"
-            className="rounded-full bg-brand-600 px-5 py-3 text-sm font-bold text-white transition hover:bg-brand-700"
+            className="rounded-xl bg-brand-700 px-5 py-3 text-sm font-semibold text-white transition hover:bg-brand-800"
           >
-            Join the community
+            Join Us
           </Link>
         </div>
 
-        {menuOpen && (
-          <div
-            id="mobile-navigation"
-            className="absolute left-0 right-0 top-full flex flex-col gap-1 border-b border-gray-200 bg-white p-5 shadow-soft md:hidden"
-          >
+        {/* Mobile menu button */}
+        <button
+          type="button"
+          className="rounded-lg border border-gray-200 px-3 py-2 text-sm font-semibold text-ink hover:bg-gray-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-brand-700 lg:hidden"
+          aria-expanded={menuOpen}
+          aria-controls="mobile-navigation"
+          onClick={() => setMenuOpen(!menuOpen)}
+        >
+          {menuOpen ? "Close" : "Menu"}
+        </button>
+      </nav>
+
+      {/* Mobile navigation */}
+      {menuOpen && (
+        <div
+          id="mobile-navigation"
+          className="border-t border-gray-100 bg-white px-5 py-4 lg:hidden"
+        >
+          <div className="mx-auto flex max-w-7xl flex-col gap-4">
             {navItems.map((item) => (
-              <a
+              <Link
                 key={item.label}
-                href={item.to}
-                onClick={() => setMenuOpen(false)}
-                className="rounded-lg px-3 py-3 font-medium text-ink hover:bg-brand-50"
+                to={item.to}
+                onClick={closeMenu}
+                className="rounded-lg py-2 text-sm font-medium text-muted hover:text-brand-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-brand-700"
               >
                 {item.label}
-              </a>
+              </Link>
             ))}
 
             <Link
               to="/signup"
-              onClick={() => setMenuOpen(false)}
-              className="mt-2 rounded-full bg-brand-600 px-5 py-3 text-center font-bold text-white"
+              onClick={closeMenu}
+              className="rounded-xl bg-brand-700 px-5 py-3 text-center font-semibold text-white hover:bg-brand-800"
             >
-              Join the community
+              Join Us
             </Link>
           </div>
-        )}
-      </nav>
+        </div>
+      )}
     </header>
   );
 }
