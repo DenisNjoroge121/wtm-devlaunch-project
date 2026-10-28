@@ -1,0 +1,31 @@
+
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 6rem;
+  }
+
+  body {
+    @apply bg-canvas font-sans text-ink antialiased;
+  }
+
+  * {
+    @apply box-border;
+  }
+
+  :focus-visible {
+    outline: 3px solid #239963;
+    outline-offset: 3px;
+  }
+
+  ::selection {
+    background-color: #d9f3e2;
+    color: #123b2b;
+  }
+}
