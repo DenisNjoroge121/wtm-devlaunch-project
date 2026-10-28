@@ -28,9 +28,14 @@ export default function Navbar() {
         <Link
           to="/"
           onClick={closeMenu}
-          className="text-2xl font-extrabold tracking-tight text-brand-800"
+          className="flex items-center gap-2"
         >
-          Dev<span className="text-ink">Launch</span>
+          <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-brand-600 text-lg font-extrabold text-white">
+            D
+          </span>
+          <span className="text-xl font-extrabold tracking-tight">
+            Dev<span className="text-brand-600">Launch</span>
+          </span>
         </Link>
 
         {/* Desktop navigation */}
