@@ -1,16 +1,131 @@
-# React + Vite
+# DevLaunch
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+DevLaunch is a modern, responsive React landing page for a tech learning program designed to help aspiring developers build practical skills, work on real projects, and prepare for career opportunities in technology.
 
-Currently, two official plugins are available:
+This project showcases the DevLaunch experience through an engaging homepage, program highlights, curriculum overview, mentor profiles, testimonials, FAQs, and call-to-action sections for enrollment.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Features
 
-## React Compiler
+- Responsive, polished landing page for a coding program
+- Clear hero section with strong conversion messaging
+- Program overview and curriculum details
+- Mentor and testimonial sections
+- Frequently asked questions accordion-style layout
+- Enrollment flow with signup and thank-you pages
+- Accessibility-friendly navigation and skip-to-content link
+- Mobile-friendly responsive design
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Tech Stack
 
-## Expanding the ESLint configuration
+- React 19
+- Vite
+- React Router DOM
+- Tailwind CSS
+- PostCSS
+- ESLint
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Project Structure
+
+```bash
+.
+├── public/
+├── src/
+│   ├── components/
+│   │   ├── Footer.jsx
+│   │   ├── Navbar.jsx
+│   │   ├── ScrollToSection.jsx
+│   │   └── SectionHeading.jsx
+│   ├── pages/
+│   │   ├── Home.jsx
+│   │   ├── Signup.jsx
+│   │   ├── ThankYou.jsx
+│   │   └── NotFound.jsx
+│   ├── sections/
+│   │   ├── CallToAction.jsx
+│   │   ├── Curriculum.jsx
+│   │   ├── FAQ.jsx
+│   │   ├── Hero.jsx
+│   │   ├── Mentors.jsx
+│   │   ├── Program.jsx
+│   │   └── Testimonials.jsx
+│   ├── App.jsx
+│   ├── App.css
+│   ├── index.css
+│   └── main.jsx
+├── .gitignore
+├── eslint.config.js
+├── index.html
+├── package.json
+├── postcss.config.js
+├── tailwind.config.js
+├── vite.config.js
+├── README.md
+└── package-lock.json
+```
+
+## Routes
+
+- `/` — Homepage with all landing page sections
+- `/signup` — Enrollment/signup page
+- `/thank-you` — Confirmation page after signup
+- `*` — Not found page
+
+## Getting Started
+
+### Prerequisites
+
+- Node.js 18 or later
+- npm or yarn
+
+### Installation
+
+```bash
+git clone https://github.com/DenisNjoroge121/wtm-devlaunch-project.git
+cd wtm-devlaunch-project
+npm install
+```
+
+### Run locally
+
+```bash
+npm run dev
+```
+
+This starts the Vite development server. Open the local URL shown in the terminal to view the app.
+
+### Build for production
+
+```bash
+npm run build
+```
+
+### Preview production build
+
+```bash
+npm run preview
+```
+
+## Available Scripts
+
+```bash
+npm run dev      # start the Vite dev server
+npm run build    # create a production build
+npm run preview  # preview the production build locally
+npm run lint     # run ESLint checks
+```
+
+## Design Notes
+
+The application uses a modern, brand-focused visual style with a strong emphasis on user conversion and educational messaging. Tailwind CSS is used to build the layout and visual system, while React Router handles page navigation and section-based scrolling.
+
+## License
+
+This project is for educational/demo use and is not currently configured with a formal license file.
+
+## Author
+
+Denis Njoroge
+
+## Repository
+
+https://github.com/DenisNjoroge121/wtm-devlaunch-project
